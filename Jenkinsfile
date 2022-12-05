@@ -24,7 +24,6 @@ pipeline {
                 }
             }
         }
-    }
 
         stage("Env Variables") {
             steps {
