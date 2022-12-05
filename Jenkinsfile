@@ -5,7 +5,7 @@ pipeline {
         stage ('Build Image') {
             steps {
                 script {
-                    dockerapp = docker.build("node_app:${env.BUILD_ID}", '-f ./Dockerfile .') 
+                    dockerapp = docker.build("chagasgb/nodeapp:${env.BUILD_ID}", '-f ./Dockerfile .') 
                 }                
             }
         }
