@@ -21,10 +21,7 @@ pipeline {
         }
         stage("Env Variables") {
             steps {
-                echo "The build number is ${env.BUILD_NUMBER}"
-                echo "You can also use \${BUILD_NUMBER} -> ${BUILD_NUMBER}"
                 sh 'docker run -d -p 44:8080 --name node-app-dev-$BUILD_NUMBER chagasgb/node-app:$BUILD_NUMBER'
-                sh 'echo "I can access $BUILD_NUMBER in shell command as well."'
             }
         }
     }
