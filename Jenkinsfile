@@ -19,12 +19,12 @@ pipeline {
                 }
             }
         }
-        
+
         stage('Docker run') {
             steps {
                 sh 'echo "PRIMEIRO ECOOOOOO"'
                 sh '''
-                    echo "SEGUNDO ECHOOO"
+                    docker run -d -p 44:8080 --name potocoteste chagasgb/node-app:${env.BUILD_ID}"
                     ls -lah
                 '''
             } 
