@@ -19,5 +19,15 @@ pipeline {
                 }
             }
         }
+        
+        stage('Docker run') {
+            steps {
+                sh 'echo "PRIMEIRO ECOOOOOO"'
+                sh '''
+                    echo "SEGUNDO ECHOOO"
+                    ls -lah
+                '''
+            } 
+        }
     }
 }
