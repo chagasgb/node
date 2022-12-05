@@ -1,6 +1,7 @@
 pipeline {
     agent any
 
+
     stages {
         stage ('Build Image') {
             steps {
@@ -9,12 +10,13 @@ pipeline {
                 }                
             }
         }
-
-        stage ('Push Image') {
-            steps {
-                script {
-                    docker.withRegistry('https://registry.hub.docker.com', 'dockerhub') {
-                        dockerapp.push("${env.BUILD_ID}")
+        if(env.BRANCH_NAME == 'master'){
+            stage ('Push Image') {
+                steps {
+                    script {
+                        docker.withRegistry('https://registry.hub.docker.com', 'dockerhub') {
+                            dockerapp.push("${env.BUILD_ID}")
+                        }
                     }
                 }
             }
@@ -26,3 +28,10 @@ pipeline {
         }
     }
 }
+
+
+
+if(env.BRANCH_NAME == 'master'){
+     stage("Upload"){
+        // Artifact repository upload steps here
+        }
