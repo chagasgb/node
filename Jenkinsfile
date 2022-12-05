@@ -24,8 +24,7 @@ pipeline {
             steps {
                 sh 'echo "PRIMEIRO ECOOOOOO"'
                 sh '''
-                    docker run -d -p 44:8080 --name potocoteste chagasgb/node-app:11"
-                    ls -lah
+                    docker run -d -p 44:8080 --name potocoteste chagasgb/node-app:11
                 '''
             } 
         }
